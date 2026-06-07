@@ -56,3 +56,25 @@ Route::get('/barang', function() {
     $barangs = DB::table('menus')->get(); 
     return view('barang.index', compact('barangs'));
 })->name('barang.index');
+
+// Route buat nampilin halaman scanner
+Route::get('/scan-barcode', function () {
+    return view('barang.scan');
+})->name('scan.barcode');
+
+// Route buat ngambil data barang via AJAX pas discan
+Route::get('/scan-barcode/get/{id}', [App\Http\Controllers\BarangController::class, 'getScannedData']);
+
+use App\Http\Controllers\TokoController;
+
+Route::get('/toko', [TokoController::class, 'index'])->name('toko.index');
+Route::post('/toko', [TokoController::class, 'store'])->name('toko.store');
+
+use App\Http\Controllers\AntrianController;
+
+Route::get('/antrian/guest', [AntrianController::class, 'guest'])->name('antrian.guest');
+Route::post('/antrian/guest', [AntrianController::class, 'guestStore'])->name('antrian.guest.store');
+Route::get('/antrian/admin', [AntrianController::class, 'admin'])->name('antrian.admin');
+Route::post('/antrian/panggil/{id}', [AntrianController::class, 'panggil'])->name('antrian.panggil');
+Route::get('/antrian/papan', [AntrianController::class, 'papan'])->name('antrian.papan');
+Route::get('/sse/antrian', [AntrianController::class, 'stream'])->name('sse.antrian');

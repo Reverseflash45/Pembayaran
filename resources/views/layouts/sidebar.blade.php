@@ -28,12 +28,19 @@
             </div>
         </li>
 
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('barang.index') }}"> 
-        <span class="menu-title">Tag Harga (Barcode)</span>
-        <i class="mdi mdi-barcode menu-icon"></i>
-    </a>
-</li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('barang.index') }}"> 
+                <span class="menu-title">Tag Harga (Barcode)</span>
+                <i class="mdi mdi-barcode menu-icon"></i>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('scan.barcode') }}"> 
+                <span class="menu-title">Scanner Barcode</span>
+                <i class="mdi mdi-barcode-scan menu-icon"></i>
+            </a>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link" href="{{ route('riwayat') }}">
@@ -41,5 +48,25 @@
                 <i class="mdi mdi-receipt menu-icon"></i>
             </a>
         </li>
+        <li class="nav-item">
+    <a class="nav-link" href="{{ route('toko.index') }}">
+        <span class="menu-title">Data Toko (Geolo)</span>
+        <i class="mdi mdi-map-marker menu-icon"></i>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#ui-antrian" aria-expanded="false" aria-controls="ui-antrian">
+        <span class="menu-title">Sistem Antrian</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-format-list-numbered menu-icon"></i>
+    </a>
+    <div class="collapse" id="ui-antrian">
+        <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ route('antrian.admin') }}">Dashboard Admin</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('antrian.guest') }}">Pendaftaran Guest</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('antrian.papan') }}">Papan Antrian</a></li>
+        </ul>
+    </div>
+</li>
     </ul>
 </nav>

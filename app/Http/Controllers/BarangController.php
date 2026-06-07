@@ -23,4 +23,16 @@ class BarangController extends Controller
 
         return view('barang.pdf_label', compact('barangs', 'skip'));
     }
+    public function getScannedData($id)
+{
+    // Ingat, kita pake tabel menus dan idmenu sesuai database lu
+    $barang = DB::table('menus')->where('idmenu', $id)->first();
+
+    if ($barang) {
+        return response()->json(['success' => true, 'data' => $barang]);
+    } else {
+        return response()->json(['success' => false, 'message' => 'Barang tidak ditemukan!']);
+    }
 }
+}
+
